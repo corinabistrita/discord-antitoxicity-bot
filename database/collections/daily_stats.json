@@ -1,0 +1,15 @@
+{
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": ["_id", "server_id", "date", "message_count", "moderation_count"],
+      "properties": {
+        "_id": { "bsonType": "objectId" },
+        "server_id": { "bsonType": "string", "pattern": "^[0-9]{17,19}$" },
+        "date": { "bsonType": "date" },
+        "message_count": { "bsonType": "int", "minimum": 0 },
+        "moderation_count": { "bsonType": "int", "minimum": 0 }
+      }
+    }
+  }
+}

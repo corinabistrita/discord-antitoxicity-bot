@@ -1,0 +1,19 @@
+{
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": ["_id", "username", "discord_id", "joined_at"],
+      "properties": {
+        "_id": { "bsonType": "objectId" },
+        "username": { "bsonType": "string" },
+        "discord_id": { "bsonType": "string", "pattern": "^[0-9]{17,19}$" },
+        "joined_at": { "bsonType": "date" },
+        "roles": {
+          "bsonType": ["array"],
+          "items": { "bsonType": "string" }
+        },
+        "is_banned": { "bsonType": "bool" }
+      }
+    }
+  }
+}

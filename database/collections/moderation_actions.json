@@ -1,0 +1,17 @@
+{
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": ["_id", "action_type", "moderator_id", "target_user_id", "created_at"],
+      "properties": {
+        "_id": { "bsonType": "objectId" },
+        "action_type": { "bsonType": "string" },
+        "moderator_id": { "bsonType": "string", "pattern": "^[0-9]{17,19}$" },
+        "target_user_id": { "bsonType": "string", "pattern": "^[0-9]{17,19}$" },
+        "reason": { "bsonType": "string", "maxLength": 500 },
+        "created_at": { "bsonType": "date" },
+        "expires_at": { "bsonType": ["date", "null"] }
+      }
+    }
+  }
+}

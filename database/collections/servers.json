@@ -1,0 +1,17 @@
+{
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": ["_id", "server_id", "name", "created_at"],
+      "properties": {
+        "_id": { "bsonType": "objectId" },
+        "server_id": { "bsonType": "string", "pattern": "^[0-9]{17,19}$" },
+        "name": { "bsonType": "string" },
+        "created_at": { "bsonType": "date" },
+        "owner_id": { "bsonType": "string", "pattern": "^[0-9]{17,19}$" },
+        "region": { "bsonType": "string" },
+        "member_count": { "bsonType": "int", "minimum": 0 }
+      }
+    }
+  }
+}

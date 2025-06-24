@@ -1,0 +1,30 @@
+{
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": ["_id", "message_id", "server_id", "user_id", "content", "created_at", "toxicity_scores"],
+      "properties": {
+        "_id": { "bsonType": "objectId" },
+        "message_id": { "bsonType": "string", "pattern": "^[0-9]{17,19}$" },
+        "server_id": { "bsonType": "string", "pattern": "^[0-9]{17,19}$" },
+        "user_id": { "bsonType": "string", "pattern": "^[0-9]{17,19}$" },
+        "content": { "bsonType": "string" },
+        "created_at": { "bsonType": "date" },
+        "toxicity_scores": {
+          "bsonType": "object",
+          "properties": {
+            "toxic": { "bsonType": "double" },
+            "severe_toxic": { "bsonType": "double" },
+            "obscene": { "bsonType": "double" },
+            "threat": { "bsonType": "double" },
+            "insult": { "bsonType": "double" },
+            "identity_hate": { "bsonType": "double" }
+          },
+          "additionalProperties": false
+        },
+        "moderated": { "bsonType": "bool" },
+        "moderation_action_id": { "bsonType": ["objectId", "null"] }
+      }
+    }
+  }
+}
